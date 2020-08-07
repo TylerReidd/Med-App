@@ -4,6 +4,7 @@ const startBtn = document.getElementById('start')
 const timerEl = document.getElementById('timer')
 
 //variables
+let counter
 let timerInterval
 let min = 5
 let sec = 0
@@ -14,9 +15,8 @@ let seconds = 0
 //event listener 
   //click start button begin countdown
   startBtn.addEventListener('click', () => {
-    if(timerInterval) {
-        clearInterval(timerInterval)
-        return timerInterval = null
+    //define function in here OR define function in global scope and call it after 
+    //'click'
     }
     //call start counter function here 
 })
