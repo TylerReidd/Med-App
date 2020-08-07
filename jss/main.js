@@ -4,39 +4,60 @@ const startBtn = document.getElementById('start')
 const timerEl = document.getElementById('timer')
 
 //variables
-let counter = 5
+let timerInterval
+let min = 5
+let sec = 0
+let seconds = 0
+
+
+
+//event listener 
+  //click start button begin countdown
+  startBtn.addEventListener('click', () => {
+    if(timerInterval) {
+        clearInterval(timerInterval)
+        return timerInterval = null
+    }
+    //call start counter function here 
+})
 
 
 
 
 function startTimer(){
-    let counter = 5000;
-    setInterval(function() {
-      counter--;
-      if (counter >= 0) {
-        span = document.getElementById("count");
-        span.innerHTML = counter;
-      }
-      if (counter === 0) {
-          alert('Time Up! Congratulations);
-          clearInterval(counter);
-      }
-    }, 1000);
-  }
-  function start()
-  {
-      document.getElementById("count").style="color:green;";
-      startTimer();
-  };
+    clearInterval(timerInterval)
+    timerInterval = setInterval(tick, 1000)
+}
 
-  //event listener 
-  //click start button begin countdown
-  addEventListener.getElementById('start')
-
+  
 
 
   //function
+//I want to use THIS function to set the timer to count backwards by 1 second (1000ms)
+setInterval(() => {
+    if(counter === 0){
+        retir
+    }
+}, 1000);
+
+
+
+
+function tick(){
+    seconds--
+    console.log(seconds)
+    if (seconds === 0){
+        clearInterval(timerInterval)
+    }
+    render()
+}
+
+  function startTimer(){
+clearInterval(timerInterval)
+timerInterval = setInterval(tick, 1000)
+  }
 
   function render() {
-
-  }
+    
+    }
+  
