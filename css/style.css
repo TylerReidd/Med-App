@@ -1,0 +1,17 @@
+body{
+    background-color: whitesmoke ;
+    text-align: center;
+    
+}
+button
+{
+font-size:40px;
+background-color:blue;
+color:white;
+}
+#count
+{
+   margin-left:20px;
+   font-size:30px;
+   color:black;
+}
