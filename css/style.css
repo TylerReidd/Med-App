@@ -1,13 +1,22 @@
 body{
-    background-color: whitesmoke ;
+    background-color: burlywood;
     text-align: center;
+    display: flex-inline;
+    justify-content: space-evenly;
+    margin: auto;
+    padding: 50px;
     
 }
+
+
+
 button
 {
 font-size:40px;
-background-color:blue;
-color:white;
+background-color:creame;
+color: maroon;
+border-radius: 50%;
+padding: 75px;
 }
 #count
 {
