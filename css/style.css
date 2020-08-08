@@ -18,6 +18,12 @@ color: maroon;
 border-radius: 50%;
 padding: 75px;
 }
+
+#resetButton{
+    border-radius: 25%;
+    padding: 25px;
+}
+
 #count
 {
    margin-left:20px;
