@@ -6,7 +6,7 @@ const timerElTen = document.getElementById('ten-btn')
 const secBar = document.getElementById('seconds')
 const minBar = document.getElementById('minutes')
 const resetBtn = document.getElementById('resetButton')
-
+const resetBtnTen = document.getElementById('resetButtonTen')
 
 //variables
 let timerInterval
@@ -43,6 +43,14 @@ let minTen, secTen, secondsTen = (600)
         seconds = 300
         clearInterval(timerInterval)
         render()
+        return timerInterval = null
+    })
+
+    resetBtnTen.addEventListener('click', () => {
+        clearInterval(timerInterval)
+        secondsTen = 600
+        clearInterval(timerInterval)
+        renderTen()
         return timerInterval = null
     })
 

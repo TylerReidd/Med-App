@@ -17,11 +17,17 @@ background-color:creame;
 color: maroon;
 border-radius: 50%;
 padding: 75px;
+margin: 25px;
 }
 
 #resetButton{
     border-radius: 25%;
     padding: 25px;
+}
+#resetButtonTen{
+    border-radius: 25%;
+    padding: 25px;
+    margin: 25px;
 }
 
 #count
