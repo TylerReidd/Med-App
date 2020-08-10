@@ -55,6 +55,7 @@ function getQuote() {
 function getFiveTimerAndQuote(){
     getQuote();
     getTimer();
+    
 
 }
 
@@ -66,6 +67,7 @@ resetBtn.addEventListener('click', () => {
     seconds = 300
     clearInterval(timerInterval)
     render()
+    ocean.pause()
     return timerInterval = null
 })
 resetBtnTen.addEventListener('click', () => {
@@ -73,7 +75,9 @@ resetBtnTen.addEventListener('click', () => {
     secondsTen = 600
     clearInterval(timerInterval)
     renderTen()
+    ocean.pause()
     return timerInterval = null
+    
 })
 
 timerElTen.addEventListener('click', () => {
@@ -101,10 +105,19 @@ function tick() {
 }
 
 function startTimer() {
+    if(seconds){
     clearInterval(timerInterval)
     timerInterval = setInterval(tick, 1000)
     ocean.play()
+    } 
 }
+function startTimerTen() {
+    clearInterval(timerInterval)
+    timerInterval = setInterval(tickTen, 1000)
+    ocean.play()
+    
+}
+
 //five minute
 function render() {
     min = Math.floor(seconds / 60)
@@ -126,12 +139,7 @@ function tickTen() {
     renderTen()
 }
 
-function startTimerTen() {
-    clearInterval(timerInterval)
-    timerInterval = setInterval(tickTen, 1000)
-    ocean.play()
-    
-}
+
 
 function renderTen() {
     minTen = Math.floor(secondsTen / 60)
