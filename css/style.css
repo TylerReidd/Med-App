@@ -20,6 +20,8 @@ h2{
     padding-bottom: 20px;
 }
 
+
+
 button
 {
 font-size:40px;
@@ -28,6 +30,10 @@ color: maroon;
 border-radius: 50%;
 padding: 75px;
 margin: 25px;
+}
+
+#five-btn{
+    border-radius: 50%;
 }
 
 #resetButton{

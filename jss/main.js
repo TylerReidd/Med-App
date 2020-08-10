@@ -81,7 +81,7 @@ timerElTen.addEventListener('click', () => {
         clearInterval(timerInterval)
         return timerInterval = null
     }
-    startTimerTen();
+    startTimerTen(); 
     getQuote();
 })
 
@@ -91,6 +91,8 @@ function tick() {
         clearInterval(timerInterval)
         //this is where I want to put the ding 
         ding.play()
+        //pauses sound when timer hits
+        ocean.pause()
             //try to get all same file type...mp3 or ogg
             //audioVar.play()
         
@@ -119,6 +121,7 @@ function tickTen() {
     if (secondsTen === (0)) {
         clearInterval(timerInterval)
         ding.play()
+        ocean.pause()
     }
     renderTen()
 }
@@ -127,6 +130,7 @@ function startTimerTen() {
     clearInterval(timerInterval)
     timerInterval = setInterval(tickTen, 1000)
     ocean.play()
+    
 }
 
 function renderTen() {
