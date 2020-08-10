@@ -52,39 +52,11 @@ function getQuote() {
         })
 }
 
-//Random Image API 
-// function getImage() {
-//     fetch("https://picsum.photos/200/300")
-//         .then((response) => {
-//             return response.json();
-//         })
-//         .then((data) => {
-//             let newQuote = {}
-//             newQuote.quote = data.url;
-//             console.log(data.slip.advice);
-//             quotes.push(newQuote);
-//             console.log(quotes);
-//             render(); 
-//             randImg.textContent = newQuote.quote;
-//         })
-//         .catch((err) => {
-//             console.log(err)
-//         })
-// }
-
-
-
-
-
-
-
-//
 function getFiveTimerAndQuote(){
     getQuote();
     getTimer();
 
 }
-
 
 timerElFive.addEventListener('click', function(){getFiveTimerAndQuote()})
 
@@ -104,8 +76,6 @@ resetBtnTen.addEventListener('click', () => {
     return timerInterval = null
 })
 
-
-
 timerElTen.addEventListener('click', () => {
     if (timerInterval) {
         clearInterval(timerInterval)
@@ -114,7 +84,6 @@ timerElTen.addEventListener('click', () => {
     startTimerTen();
     getQuote();
 })
-
 
 function tick() {
     seconds--
@@ -143,14 +112,7 @@ function render() {
     } else {
         timerElFive.innerText = `${min}:${sec}`
     }
-    //BAR ANIMATION
-    // secBar.style = `width: ${sec/60*100}%`
-    // secBar.innerText = sec;
-    // minBar.style = `width: ${(min/60*100)%60}%`
-    // minBar.innerText = min
 }
-
-
 
 function tickTen() {
     secondsTen--
@@ -167,7 +129,6 @@ function startTimerTen() {
     ocean.play()
 }
 
-
 function renderTen() {
     minTen = Math.floor(secondsTen / 60)
     secTen = secondsTen % 60
@@ -177,126 +138,3 @@ function renderTen() {
         timerElTen.innerText = `${minTen}:${secTen}`
     }
 }
-
-
-
-
-//     fetch("https://healthruwords.p.rapidapi.com/v1/quotes/?id=731&t=Wisdom&maxR=1&size=medium", {
-// 	"method": "GET",
-// 	"headers": {
-// 		"x-rapidapi-host": "healthruwords.p.rapidapi.com",
-// 		"x-rapidapi-key": "SIGN-UP-FOR-KEY"
-// 	}
-// })
-// .then(response => {
-// 	console.log(response);
-// })
-// .catch(err => {
-// 	console.log(err);
-// });
-
-
-//     if (timerInterval){
-//         clearInterval(timerInterval)
-//         return timerInterval = null
-//     }
-//     startTimer()
-// })
-
-// tenButton.addEventListener('click', () =>{
-// fetch("https://healthruwords.p.rapidapi.com/v1/quotes/?id=731&t=Wisdom&maxR=1&size=medium", {
-//     "method": "GET",
-//     "headers": {
-//         "x-rapidapi-host": "healthruwords.p.rapidapi.com",
-//         "x-rapidapi-key": "SIGN-UP-FOR-KEY"
-//     }
-// })
-// .then(response => {
-//     console.log(response);
-// })
-// .catch(err => {
-//     console.log(err);
-// });
-
-// })
-
-
-
-
-
-
-
-
-
-// function tick(){
-//     //seconds-- count downwards
-//     seconds--
-//     console.log(seconds)
-//     if (seconds === 0){
-//         clearInterval(timerInterval)
-//     }
-//     render()
-// }
-
-// function startTimer(){
-//     clearInterval(timerInterval)
-//     timerInterval = setInterval(tick, 1000)
-// }
-
-
-// function render() {
-//     min = Math.floor(seconds / 60);
-//     sec = seconds % 60;
-//     if (sec < 10) {
-//         timerEl.innerText = `${min}:0${sec}`
-//     } else {
-//         timerEl.innerText = `${min}:${sec}`
-//     }
-//     // secBar.style = `width: ${sec/60*100}%`
-//     // secBar.innerText = sec;
-//     // minBar.style = `width: ${(min/60*100)%60}%`
-//     // minBar.innerText = min;
-//     // hrBar.style = `width: ${(hr/24*100)%24}%`
-//     // hrBar.innerText = hr;
-// }
-
-
-
-
-
-
-
-
-
-
-//   //function
-// //I want to use THIS function to set the timer to count backwards by 1 second (1000ms)
-// // setInterval(() => {
-// //     if(counter === 0){
-// //         return
-// //     }
-// // }, 1000);
-
-
-
-
-// // function tick(){
-// //     seconds--
-// //     console.log(seconds)
-// //     if (seconds === 0){
-// //         clearInterval(timerInterval)
-// //     }
-// //     render()
-// // }
-
-// //   function startTimer(){
-// // clearInterval(timerInterval)
-// // timerInterval = setInterval(tick, 1000)
-// //   }
-
-
-
-
-// //   function render() {
-
-// //     }

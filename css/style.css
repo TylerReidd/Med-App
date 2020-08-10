@@ -13,6 +13,7 @@ body{
 img{
     background-size: contain;
     padding-bottom: 20px;
+    align-items: center;
 }
 
 h2{
@@ -71,4 +72,10 @@ margin: 25px;
     }
   }
 
+  @media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 812px)
+  and (-webkit-min-device-pixels-ratio: 3){
+
+  }
   
