@@ -6,11 +6,10 @@ body{
     margin: auto;
     padding: 50px;
     font-family: 'Calligraffitti', cursive;
-    
-    
 }
 
-img{
+img
+{
     background-size: contain;
     padding-bottom: 20px;
     align-items: center;
@@ -20,20 +19,27 @@ h2{
     padding-bottom: 20px;
 }
 
-
-
 button
 {
-font-size:40px;
+font-size:25px;
 background-color: seashell;
 color: maroon;
-border-radius: 50%;
+border-radius: 100%;
 padding: 75px;
 margin: 25px;
+
+}
+button:hover {
+    background-color: silver;
 }
 
 #five-btn{
-    border-radius: 50%;
+    padding: 5%;
+    box-shadow: 3px 3px;
+}
+
+#ten-btn{
+    box-shadow: 3px 3px;
 }
 
 #resetButton{
@@ -42,6 +48,7 @@ margin: 25px;
     background-color: wheat ;
     color: green;
 }
+
 #resetButtonTen{
     border-radius: 25%;
     padding: 25px;
