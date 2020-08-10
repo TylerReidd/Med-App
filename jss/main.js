@@ -12,6 +12,8 @@ const resetBtnTen = document.getElementById('resetButtonTen')
 //THINKING: Do I need to create CER for inspirational quote?
 const inspQuote = document.getElementById('quote')
 
+const randImg = document.getElementById('image')
+
 const ding = new Audio(`/audio/ding.wav`)
 
 //variables
@@ -47,6 +49,32 @@ function getQuote() {
             console.log(err)
         })
 }
+
+//Random Image API 
+function getImage() {
+    fetch("https://picsum.photos/200/300")
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            let newQuote = {}
+            newQuote.quote = data.slip.advice;
+            console.log(data.slip.advice);
+            quotes.push(newQuote);
+            console.log(quotes);
+            render(); 
+            inspQuote.textContent = newQuote.quote;
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+}
+
+
+
+
+
+
 
 //
 function getFiveTimerAndQuote(){
