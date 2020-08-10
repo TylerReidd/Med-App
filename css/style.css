@@ -7,9 +7,17 @@ body{
     padding: 50px;
     font-family: 'Calligraffitti', cursive;
     
+    
 }
 
+img{
+    background-size: contain;
+    padding-bottom: 20px;
+}
 
+h2{
+    padding-bottom: 20px;
+}
 
 button
 {
@@ -25,12 +33,14 @@ margin: 25px;
     border-radius: 25%;
     padding: 25px;
     background-color: wheat ;
+    color: green;
 }
 #resetButtonTen{
     border-radius: 25%;
     padding: 25px;
     margin: 25px;
     background-color: wheat;
+    color: green;
 }
 
 #count

@@ -13,8 +13,10 @@ const resetBtnTen = document.getElementById('resetButtonTen')
 const inspQuote = document.getElementById('quote')
 
 const randImg = document.getElementById('image')
+//const ipsum = document.getElementsByTagName("body")[0].style.backgroundImage = "url(https://picsum.photos/500/700/?random)";
 
 const ding = new Audio(`/audio/ding.wav`)
+const ocean = new Audio(`/audio/ocean-crickets.wav`)
 
 //variables
 let quotes = [];
@@ -51,24 +53,24 @@ function getQuote() {
 }
 
 //Random Image API 
-function getImage() {
-    fetch("https://picsum.photos/200/300")
-        .then((response) => {
-            return response.json();
-        })
-        .then((data) => {
-            let newQuote = {}
-            newQuote.quote = data.slip.advice;
-            console.log(data.slip.advice);
-            quotes.push(newQuote);
-            console.log(quotes);
-            render(); 
-            inspQuote.textContent = newQuote.quote;
-        })
-        .catch((err) => {
-            console.log(err)
-        })
-}
+// function getImage() {
+//     fetch("https://picsum.photos/200/300")
+//         .then((response) => {
+//             return response.json();
+//         })
+//         .then((data) => {
+//             let newQuote = {}
+//             newQuote.quote = data.url;
+//             console.log(data.slip.advice);
+//             quotes.push(newQuote);
+//             console.log(quotes);
+//             render(); 
+//             randImg.textContent = newQuote.quote;
+//         })
+//         .catch((err) => {
+//             console.log(err)
+//         })
+// }
 
 
 
@@ -130,6 +132,7 @@ function tick() {
 function startTimer() {
     clearInterval(timerInterval)
     timerInterval = setInterval(tick, 1000)
+    ocean.play()
 }
 //five minute
 function render() {
@@ -161,6 +164,7 @@ function tickTen() {
 function startTimerTen() {
     clearInterval(timerInterval)
     timerInterval = setInterval(tickTen, 1000)
+    ocean.play()
 }
 
 
