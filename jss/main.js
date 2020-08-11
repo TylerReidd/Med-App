@@ -21,8 +21,8 @@ const ocean = new Audio(`/audio/ocean-crickets.wav`)
 //variables
 let quotes = [];
 let timerInterval
-let min, sec, seconds = (300)
-let minTen, secTen, secondsTen = (600)
+let fiveMinInSeconds = (300)
+let tenMinInSeconds = (600)
 //event listener 
 //click start button begin  5 min countdown
 function getTimer() {
@@ -44,7 +44,7 @@ function getQuote() {
             console.log(data.slip.advice);
             quotes.push(newQuote);
             console.log(quotes);
-            render(); 
+            //render(); 
             inspQuote.textContent = newQuote.quote;
         })
         .catch((err) => {
@@ -61,18 +61,18 @@ timerElFive.addEventListener('click', function(){getFiveTimerAndQuote()})
 
 resetBtn.addEventListener('click', () => {
     clearInterval(timerInterval)
-    seconds = 300
+    fiveMinInSeconds = 300
     clearInterval(timerInterval)
-    render()
+    render(timerElFive, fiveMinInSeconds)
     ocean.pause()
     return timerInterval = null
 })
 
 resetBtnTen.addEventListener('click', () => {
     clearInterval(timerInterval)
-    secondsTen = 600
+    tenMinInSeconds = 600
     clearInterval(timerInterval)
-    renderTen()
+    render(timerElTen, tenMinInSeconds)
     ocean.pause()
     return timerInterval = null
     
@@ -100,8 +100,9 @@ function startTimerTen() {
 }
 
 function tick() {
-    seconds--
-    if (seconds === (0)) {
+
+    fiveMinInSeconds--
+    if (fiveMinInSeconds === (0)) {
         clearInterval(timerInterval)
         //this is where I want to put the ding 
         ding.play()
@@ -111,36 +112,27 @@ function tick() {
             //audioVar.play()
         
     }
-    render();
+    render(timerElFive,fiveMinInSeconds);
 }
 
 function tickTen() {
-    secondsTen--
-    if (secondsTen === (0)) {
+    tenMinInSeconds--
+    if (tenMinInSeconds === (0)) {
         clearInterval(timerInterval)
         ding.play()
         ocean.pause()
     }
-    renderTen()
+    render(timerElTen, tenMinInSeconds)
 }
 
 //five minute
-function render() {
-    min = Math.floor(seconds / 60)
-    sec = seconds % 60
+function render(htmlElement, seconds) {
+    let min = Math.floor(seconds / 60)
+    let sec = seconds % 60
     if (sec < 10) {
-        timerElFive.innerText = `${min}:0${sec}`
+        htmlElement.innerText = `${min}:0${sec}`
     } else {
-        timerElFive.innerText = `${min}:${sec}`
+        htmlElement.innerText = `${min}:${sec}`
     }
 }
 
-function renderTen() {
-    minTen = Math.floor(secondsTen / 60)
-    secTen = secondsTen % 60
-    if (secTen < 10) {
-        timerElTen.innerText = `${minTen}:0${secTen}`
-    } else {
-        timerElTen.innerText = `${minTen}:${secTen}`
-    }
-}
