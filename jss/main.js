@@ -3,15 +3,12 @@ const startBtn = document.getElementById('start')
 //change innerTEXT of timerEl
 const timerElFive = document.getElementById('five-btn')
 const timerElTen = document.getElementById('ten-btn')
-//animated progress bars 
-const secBar = document.getElementById('seconds')
-const minBar = document.getElementById('minutes')
 
 const resetBtn = document.getElementById('resetButton')
 const resetBtnTen = document.getElementById('resetButtonTen')
 //THINKING: Do I need to create CER for inspirational quote?
 const inspQuote = document.getElementById('quote')
-
+const getJokes = document.getElementById('joke')
 const randImg = document.getElementById('image')
 //const ipsum = document.getElementsByTagName("body")[0].style.backgroundImage = "url(https://picsum.photos/500/700/?random)";
 
@@ -19,6 +16,7 @@ const ding = new Audio(`/audio/ding.wav`)
 const ocean = new Audio(`/audio/ocean-crickets.wav`)
 
 //variables
+let jokes = [];
 let quotes = [];
 let timerInterval
 let fiveMinInSeconds = (300)
@@ -52,10 +50,38 @@ function getQuote() {
         })
 }
 
+function getJoke() {
+    fetch("https://sv443.net/jokeapi/v2/joke/Programming?blacklistFlags=racist,sexist")
+    .then((response) => {
+        return response.json();
+    })
+    .then((data) => {
+        let newJoke = {}
+        newJoke.joke = data.joke
+        console.log(newJoke)
+        jokes.push(newJoke)
+        getJokes.textContent = newJoke.joke
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+}
+
+
+
+
+
+
 function getFiveTimerAndQuote(){
     getQuote();
     getTimer();
+    getJoke();
 }
+
+// function getTenTimerAndQuote(){
+//     getQuote();
+//     getTimer();
+// }
 
 timerElFive.addEventListener('click', function(){getFiveTimerAndQuote()})
 
@@ -85,12 +111,14 @@ timerElTen.addEventListener('click', () => {
     }
     startTimerTen(); 
     getQuote();
+    getJoke();
 })
 
 function startTimer() {
     clearInterval(timerInterval)
-    timerInterval = setInterval(tick, 1000)
-    ocean.play()
+    if(fiveMinInSeconds){timerInterval = setInterval(tick, 1000)
+        ocean.play()}
+    
 }
 
 function startTimerTen() {
