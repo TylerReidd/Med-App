@@ -33,3 +33,10 @@
 http://meditatiousapp.surge.sh/
 
 - Click your desired time-length and enjoy
+
+## Stretch Goals
+- User can set weekly meditaiton goals 
+- Dropdown menu with options of various time lenghts.
+- Add button to add time in either 5 or 10 minute increments.
+- Audio recording "You have accomplished your meditation goal for today. 
+- Record my own music to play as time runs down. 

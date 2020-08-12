@@ -92,6 +92,7 @@ resetBtn.addEventListener('click', () => {
     render(timerElFive, fiveMinInSeconds)
     ocean.pause()
     return timerInterval = null
+    
 })
 
 resetBtnTen.addEventListener('click', () => {
@@ -116,9 +117,8 @@ timerElTen.addEventListener('click', () => {
 
 function startTimer() {
     clearInterval(timerInterval)
-    if(fiveMinInSeconds){timerInterval = setInterval(tick, 1000)
-        ocean.play()}
-    
+    timerInterval = setInterval(tick, 1000)
+    ocean.play()    
 }
 
 function startTimerTen() {

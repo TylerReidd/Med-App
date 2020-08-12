@@ -1,17 +1,55 @@
 body{
     background-color: burlywood;
     text-align: center;
-    display: flex-inline;
-    justify-content: space-evenly;
-    margin: auto;
-    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: 'Calligraffitti', cursive;
 }
 
-img
+h1{
+    margin-top: 25px;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.time-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+
+
+.reset-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+#img
 {
     background-size: contain;
-    padding-bottom: 20px;
+    padding-bottom: 20px 20px;
     align-items: center;
 }
 
@@ -40,6 +78,8 @@ button:hover {
 
 #ten-btn{
     box-shadow: 3px 3px;
+    width: 100px;
+    height: 100px;
 }
 
 #resetButton{
@@ -64,7 +104,7 @@ button:hover {
    color:black;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 768px) {
     body {
       /* tablet - two column display */
       grid-template-columns: 1fr 4fr;
@@ -73,6 +113,9 @@ button:hover {
         "header header"
         "main content"
         "footer footer";
+        background: rgb(2,0,36);
+background: linear-gradient(45deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+color: silver;
     }
   
   }
@@ -86,9 +129,20 @@ button:hover {
   }
 
   @media only screen
-  and (min-device-width: 375px)
-  and (max-device-width: 812px)
-  and (-webkit-min-device-pixels-ratio: 3){
-
+  and (max-device-width: 375px)
+  {
+    body{
+        padding: 15px 15px;
+        color: tan;
+        background-color: black;
+    }
+    #img{
+        padding: 25px 25px;
+        width: 400px;
+        height: 300px;
+    }
+    .reset-btn{
+        padding: 0 0
+    }
   }
   

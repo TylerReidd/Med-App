@@ -19,26 +19,29 @@
     <!--<h3> <span id="time-left">5</span></h3> MAYBE-->
     
     
-<span><button id="five-btn" style="width: 60px; height: 60px;">5:00</button>
-    <button id="ten-btn" style="width: 60px; height: 60px;">10:00</button></span>
+<div class="container">
+    <div class="time-btn">
+        <button id="five-btn" class="item">5:00</button>
+        <button id="ten-btn"  class="item">10:00</button>
+    </div>
 
-    <h2>Enjoy a peaceful image</h2>
-
-        <div>
-            <img src="https://picsum.photos/400/300/?random">
-            
-        </div>
+    <div class="item">
+        <h2 class="item">Enjoy a peaceful image</h2>
+        <img id="img" src="https://picsum.photos/400/300/?random">
+    </div>
     
-        
+
+        <h1 id="joke" class="item"></h1>
+        <br>
+        <h1 id="quote" class="item"></h1>
+        <h1 id="image" class="item"></h1>
+
+    <div class="reset-btn">
+        <button id="resetButton" class="btn btn-danger">5 More Minutes</button>
+        <button id="resetButtonTen" class="btn btn-danger">10 More Minutes</button>
+    </div>
     
-    <h1 id="joke"></h1>
-    <br>
-    <h1 id="quote"></h1>
-    <h1 id="image"></h1>
-
-
-
-    <button id="resetButton" class="btn btn-danger">5 More Minutes</button>
-    <button id="resetButtonTen" class="btn btn-danger">10 More Minutes</button>
+    
+</div>
 </body>
 </html>
