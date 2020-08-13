@@ -57,11 +57,6 @@ timerElTen.addEventListener('click', () => {
     getJoke();
 })
 
-
-
-
-
-
 //click start button begin  5 min countdown
 function getTimer() {
     if (timerInterval) {
@@ -70,7 +65,6 @@ function getTimer() {
     }
     startTimer();
 }
-
 
 //API connections
 function getQuote() {
@@ -115,8 +109,6 @@ function getFiveTimerAndQuote(){
     getJoke();
 }
 
-
-
 function startTimer() {
     clearInterval(timerInterval)
     timerInterval = setInterval(tick, 1000)
@@ -130,7 +122,6 @@ function startTimerTen() {
 }
 
 function tick() {
-
     fiveMinInSeconds--
     if (fiveMinInSeconds === (0)) {
         clearInterval(timerInterval)
@@ -140,7 +131,6 @@ function tick() {
         ocean.pause()
             //try to get all same file type...mp3 or ogg
             //audioVar.play()
-        
     }
     render(timerElFive,fiveMinInSeconds);
 }
