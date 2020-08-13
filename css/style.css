@@ -90,11 +90,8 @@ color: maroon;
 border-radius: 100%;
 padding: 75px;
 margin: 25px;
+}
 
-}
-button:hover {
-    background-color: silver;
-}
 
 #five-btn{
     margin-right: 15px;

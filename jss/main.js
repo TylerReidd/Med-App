@@ -1,5 +1,5 @@
 //cached element references
-const startBtn = document.getElementById('start')
+//const startBtn = document.getElementById('start')
 //change innerTEXT of timerEl
 const timerElFive = document.getElementById('five-btn')
 const timerElTen = document.getElementById('ten-btn')
@@ -12,17 +12,19 @@ const getJokes = document.getElementById('joke')
 const randImg = document.getElementById('image')
 //const ipsum = document.getElementsByTagName("body")[0].style.backgroundImage = "url(https://picsum.photos/500/700/?random)";
 
+const rainforest = new Audio(`/audio/Rainforest.wav`)
 const ding = new Audio(`/audio/ding.wav`)
 const ocean = new Audio(`/audio/ocean-crickets.wav`)
 
 //variables
+
 let jokes = [];
 let quotes = [];
 let timerInterval
 let fiveMinInSeconds = (300)
 let tenMinInSeconds = (600)
-//EVENT LISTENERS
 
+//EVENT LISTENERS
 timerElFive.addEventListener('click', function(){
     getFiveTimerAndQuote()
 })
@@ -32,7 +34,7 @@ resetBtn.addEventListener('click', () => {
     fiveMinInSeconds = 300
     clearInterval(timerInterval)
     render(timerElFive, fiveMinInSeconds)
-    ocean.pause()
+    rainforest.pause()
     return timerInterval = null
     
 })
@@ -56,16 +58,6 @@ timerElTen.addEventListener('click', () => {
     getQuote();
     getJoke();
 })
-
-//click start button begin  5 min countdown
-function getTimer() {
-    if (timerInterval) {
-        clearInterval(timerInterval)
-        return timerInterval = null
-    }
-    startTimer();
-}
-
 //API connections
 function getQuote() {
     fetch("https://api.adviceslip.com/advice")
@@ -103,6 +95,16 @@ function getJoke() {
     })
 }
 
+//click start button begin  5 min countdown
+function getTimer() {
+    if (timerInterval) {
+        clearInterval(timerInterval)
+        return timerInterval = null
+    }
+    startTimer();
+}
+
+
 function getFiveTimerAndQuote(){
     getQuote();
     getTimer();
@@ -112,8 +114,8 @@ function getFiveTimerAndQuote(){
 function startTimer() {
     clearInterval(timerInterval)
     timerInterval = setInterval(tick, 1000)
-    ocean.play()    
-}
+    rainforest.play()
+    }
 
 function startTimerTen() {
     clearInterval(timerInterval)
@@ -128,7 +130,7 @@ function tick() {
         //this is where I want to put the ding 
         ding.play()
         //pauses sound when timer hits
-        ocean.pause()
+        rainforest.pause()
             //try to get all same file type...mp3 or ogg
             //audioVar.play()
     }
@@ -155,4 +157,3 @@ function render(htmlElement, seconds) {
         htmlElement.innerText = `${min}:${sec}`
     }
 }
-
