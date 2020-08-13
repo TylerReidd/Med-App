@@ -21,7 +21,47 @@ let quotes = [];
 let timerInterval
 let fiveMinInSeconds = (300)
 let tenMinInSeconds = (600)
-//event listener 
+//EVENT LISTENERS
+
+timerElFive.addEventListener('click', function(){
+    getFiveTimerAndQuote()
+})
+
+resetBtn.addEventListener('click', () => {
+    clearInterval(timerInterval)
+    fiveMinInSeconds = 300
+    clearInterval(timerInterval)
+    render(timerElFive, fiveMinInSeconds)
+    ocean.pause()
+    return timerInterval = null
+    
+})
+
+resetBtnTen.addEventListener('click', () => {
+    clearInterval(timerInterval)
+    tenMinInSeconds = 600
+    clearInterval(timerInterval)
+    render(timerElTen, tenMinInSeconds)
+    ocean.pause()
+    return timerInterval = null
+    
+})
+
+timerElTen.addEventListener('click', () => {
+    if (timerInterval) {
+        clearInterval(timerInterval)
+        return timerInterval = null
+    }
+    startTimerTen(); 
+    getQuote();
+    getJoke();
+})
+
+
+
+
+
+
 //click start button begin  5 min countdown
 function getTimer() {
     if (timerInterval) {
@@ -31,6 +71,8 @@ function getTimer() {
     startTimer();
 }
 
+
+//API connections
 function getQuote() {
     fetch("https://api.adviceslip.com/advice")
         .then((response) => {
@@ -67,53 +109,13 @@ function getJoke() {
     })
 }
 
-
-
-
-
-
 function getFiveTimerAndQuote(){
     getQuote();
     getTimer();
     getJoke();
 }
 
-// function getTenTimerAndQuote(){
-//     getQuote();
-//     getTimer();
-// }
 
-timerElFive.addEventListener('click', function(){getFiveTimerAndQuote()})
-
-resetBtn.addEventListener('click', () => {
-    clearInterval(timerInterval)
-    fiveMinInSeconds = 300
-    clearInterval(timerInterval)
-    render(timerElFive, fiveMinInSeconds)
-    ocean.pause()
-    return timerInterval = null
-    
-})
-
-resetBtnTen.addEventListener('click', () => {
-    clearInterval(timerInterval)
-    tenMinInSeconds = 600
-    clearInterval(timerInterval)
-    render(timerElTen, tenMinInSeconds)
-    ocean.pause()
-    return timerInterval = null
-    
-})
-
-timerElTen.addEventListener('click', () => {
-    if (timerInterval) {
-        clearInterval(timerInterval)
-        return timerInterval = null
-    }
-    startTimerTen(); 
-    getQuote();
-    getJoke();
-})
 
 function startTimer() {
     clearInterval(timerInterval)

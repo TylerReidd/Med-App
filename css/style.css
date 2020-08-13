@@ -13,7 +13,7 @@ body{
     background: -webkit-linear-gradient(bottom right, #0878BA, #2C010E);
     background: -moz-linear-gradient(bottom right, #0878BA, #2C010E);
     background: linear-gradient(to top left, #0878BA, #2C010E);
-    color: bisque;
+    color: snow;
 }
 
 h1{
@@ -49,7 +49,27 @@ h1{
     align-items: center;
 }
 
+.btn{
+    display: inline-block;
+    text-decoration: none;
+    background: #87befd;
+    color: #FFF;
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    box-shadow: 0px 0px 0px 5px #87befd;
+    border: dashed 1px #FFF;
+    transition: .4s;
+}
 
+.btn:hover{
+    background: #668ad8;
+     box-shadow: 0px 0px 0px 5px #668ad8;
+}
 
 #img
 {
@@ -77,18 +97,19 @@ button:hover {
 }
 
 #five-btn{
-    padding: 5%;
+    margin-right: 15px;
     box-shadow: 3px 3px;
+    width: 75px;
     height: 75px;
-    width: 75;
 }
 
 #ten-btn{
+    margin-left: 15px;
     box-shadow: 3px 3px;
     width: 100px;
     height: 100px;
 }
-
+/*
 #resetButton{
     border-radius: 50%;
     padding: 25px;
@@ -96,6 +117,7 @@ button:hover {
     color: green;
     height:100px;
     width: 100px;
+    margin-bottom: 200px;
 }
 
 #resetButtonTen{
@@ -106,8 +128,9 @@ button:hover {
     color: green;
     height:100px;
     width: 100px;
+    margin-bottom: 200px;
 }
-
+*/
 #count
 {
    margin-left:20px;
