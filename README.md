@@ -35,7 +35,7 @@
 
 ## Getting Started
 
-http://meditatiousapp.surge.sh/
+http://meditatious.surge.sh/
 
 - Select a five minute timer and listen to the sounds of the rainforest. Select a ten minute timer listen to the sounds of the ocean, and crickets chirping. Beneath the timer select, you'll find a "meditative" image, followed by a joke, and finally your daily meditative quote. When the timer runs out, you will be alerted with a gentle chime. If you'd like more time, simply select, "Five more minutes" or "ten more mintues" and the timer will reset. 
 ## Stretch Goals
