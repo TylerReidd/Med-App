@@ -25,8 +25,12 @@ let fiveMinInSeconds = (300)
 let tenMinInSeconds = (600)
 
 //EVENT LISTENERS
-timerElFive.addEventListener('click', function(){
-    getFiveTimerAndQuote()
+timerElFive.addEventListener('click', function () {
+    clickHandler(timerElFive)
+})
+
+timerElTen.addEventListener('click', () => {
+    clickHandler(timerElTen)
 })
 
 resetBtn.addEventListener('click', () => {
@@ -36,7 +40,6 @@ resetBtn.addEventListener('click', () => {
     render(timerElFive, fiveMinInSeconds)
     rainforest.pause()
     return timerInterval = null
-    
 })
 
 resetBtnTen.addEventListener('click', () => {
@@ -46,17 +49,7 @@ resetBtnTen.addEventListener('click', () => {
     render(timerElTen, tenMinInSeconds)
     ocean.pause()
     return timerInterval = null
-    
-})
 
-timerElTen.addEventListener('click', () => {
-    if (timerInterval) {
-        clearInterval(timerInterval)
-        return timerInterval = null
-    }
-    startTimerTen(); 
-    getQuote();
-    getJoke();
 })
 //API connections
 function getQuote() {
@@ -80,47 +73,49 @@ function getQuote() {
 
 function getJoke() {
     fetch("https://sv443.net/jokeapi/v2/joke/Programming?blacklistFlags=racist,sexist")
-    .then((response) => {
-        return response.json();
-    })
-    .then((data) => {
-        let newJoke = {}
-        newJoke.joke = data.joke
-        console.log(newJoke)
-        jokes.push(newJoke)
-        getJokes.textContent = newJoke.joke
-    })
-    .catch((err) => {
-        console.log(err)
-    })
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            let newJoke = {}
+            newJoke.joke = data.joke
+            console.log(newJoke)
+            jokes.push(newJoke)
+            getJokes.textContent = newJoke.joke
+        })
+        .catch((err) => {
+            console.log(err)
+        })
 }
+//FUNCTIONS
+
 
 //click start button begin  5 min countdown
-function getTimer() {
+function startTimer(element) {
+    if (element === timerElFive) {
+        clearInterval(timerInterval)
+        timerInterval = setInterval(tick, 1000)
+        rainforest.play();
+    } else if (element === timerElTen) {
+        clearInterval(timerInterval);
+        timerInterval = setInterval(tickTen, 1000)
+        ocean.play();
+    }
+}
+
+function getTimer(element) {
     if (timerInterval) {
         clearInterval(timerInterval)
         return timerInterval = null
     }
-    startTimer();
+    startTimer(element);
 }
 
 
-function getFiveTimerAndQuote(){
+function clickHandler(element) {
     getQuote();
-    getTimer();
+    getTimer(element);
     getJoke();
-}
-
-function startTimer() {
-    clearInterval(timerInterval)
-    timerInterval = setInterval(tick, 1000)
-    rainforest.play()
-    }
-
-function startTimerTen() {
-    clearInterval(timerInterval)
-    timerInterval = setInterval(tickTen, 1000)
-    ocean.play()
 }
 
 function tick() {
@@ -129,12 +124,12 @@ function tick() {
         clearInterval(timerInterval)
         //this is where I want to put the ding 
         ding.play()
-        //pauses sound when timer hits
+        //pauses sound when timer hits zero
         rainforest.pause()
-            //try to get all same file type...mp3 or ogg
-            //audioVar.play()
+        //try to get all same file type...mp3 or ogg
+        //audioVar.play()
     }
-    render(timerElFive,fiveMinInSeconds);
+    render(timerElFive, fiveMinInSeconds);
 }
 
 function tickTen() {
